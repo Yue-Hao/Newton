@@ -6,6 +6,7 @@ class Task(db.Model):
     name = db.StringProperty(required = True)
     algorithm = db.StringProperty(required = True)
     description = db.TextProperty()
+    parameters = db.TextProperty()
     population = db.IntegerProperty(required = True)
     max_gen = db.IntegerProperty(required = True)
     cur_gen = db.IntegerProperty(required = True)
@@ -26,12 +27,14 @@ class Task(db.Model):
                user_key, 
                name, 
                algorithm, 
-               population, 
+               parameters,
+               population,
                max_gen, 
                description = None):
         return Task(parent = user_key,
                      name = name,
                      algorithm = algorithm,
+                    parameters = parameters,
                      population = population,
                      max_gen = max_gen,
                      cur_gen = 0,
