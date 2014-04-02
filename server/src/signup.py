@@ -56,6 +56,7 @@ class Signup(handler.BaseHandler):
         raise NotImplementedError
 
 class Register(Signup):
+
     def done(self):
         u = DB.User.by_name(self.username)
         if u:
@@ -64,3 +65,4 @@ class Register(Signup):
         else:
             u = DB.User.register(self.username, self.password, self.email)
             u.put()
+            self.redirect("/")
