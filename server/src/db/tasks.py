@@ -4,6 +4,7 @@ from google.appengine.ext import db
 
 class Task(db.Model):
     name = db.StringProperty(required = True)
+    #algorithm for optimization
     algorithm = db.StringProperty(required = True)
     description = db.TextProperty()
     parameters = db.TextProperty()
